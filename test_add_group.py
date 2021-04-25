@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest
 from group import Group
+from group import Contact
 
 
 class UntitledTestCase(unittest.TestCase):
@@ -70,6 +72,77 @@ class UntitledTestCase(unittest.TestCase):
 
     def open_home_page(self, wd):
         wd.get("http://localhost/addressbook/group.php")
+
+    def test_add_contact(self):
+            wd = self.wd
+            self.open_home_page(wd)
+            self.login(wd, username="admin", password="secret")
+            self.open_add_new(wd)
+            self.create_contact(wd,
+                                Contact(firstname="Vl", lastname="Vakhitov", company="Quality-lab", addreswork="moskov",
+                                        mobilenumber="+79143333333", worknumber="+79146666666",
+                                        email="vvakhitov@quality-lab.ru", email2="siemiens11@gmail.com", bday="30",
+                                        bmonth="August", byear="1994", address="Irkytsk",
+                                        mobilenumber2="+79143679185", notes="test"))
+            self.return_home_page(wd)
+            self.logout(wd)
+
+    def test_add_empty_contact(self):
+        wd = self.wd
+        self.open_home_page(wd)
+        self.login(wd, username="admin", password="secret")
+        self.open_add_new(wd)
+        self.create_contact(wd,
+                            Contact(firstname="", lastname="", company="", addreswork="",
+                                    mobilenumber="", worknumber="",
+                                    email="", email2="", bday="-",
+                                    bmonth="-", byear="", address="",
+                                    mobilenumber2="", notes=""))
+        self.return_home_page(wd)
+        self.logout(wd)
+
+    def return_home_page(self, wd):
+            # return to home page
+            wd.find_element_by_link_text("home page").click()
+
+    def create_contact(self, wd, contact):
+            # fill contact form
+            wd.find_element_by_name("firstname").click()
+            wd.find_element_by_name("firstname").clear()
+            wd.find_element_by_name("firstname").send_keys(contact.firstname)
+            wd.find_element_by_name("lastname").clear()
+            wd.find_element_by_name("lastname").send_keys(contact.lastname)
+            wd.find_element_by_name("company").clear()
+            wd.find_element_by_name("company").send_keys(contact.company)
+            wd.find_element_by_name("address").clear()
+            wd.find_element_by_name("address").send_keys(contact.addreswork)
+            wd.find_element_by_name("mobile").clear()
+            wd.find_element_by_name("mobile").send_keys(contact.mobilenumber)
+            wd.find_element_by_name("work").clear()
+            wd.find_element_by_name("work").send_keys(contact.worknumber)
+            wd.find_element_by_name("email").clear()
+            wd.find_element_by_name("email").send_keys(contact.email)
+            wd.find_element_by_name("email2").clear()
+            wd.find_element_by_name("email2").send_keys(contact.email2)
+            wd.find_element_by_name("bday").click()
+            Select(wd.find_element_by_name("bday")).select_by_visible_text(contact.bday)
+            wd.find_element_by_name("bmonth").click()
+            Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.bmonth)
+            wd.find_element_by_name("byear").click()
+            wd.find_element_by_name("byear").send_keys(contact.byear)
+            wd.find_element_by_name("address2").click()
+            wd.find_element_by_name("address2").clear()
+            wd.find_element_by_name("address2").send_keys(contact.address)
+            wd.find_element_by_name("phone2").clear()
+            wd.find_element_by_name("phone2").send_keys(contact.mobilenumber2)
+            wd.find_element_by_name("notes").clear()
+            wd.find_element_by_name("notes").send_keys(contact.notes)
+            # submit contact creation
+            wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+
+    def open_add_new(self, wd):
+            # open add new
+            wd.find_element_by_link_text("add new").click()
 
     def is_element_present(self, how, what):
         try: self.wd.find_element(by=how, value=what)
