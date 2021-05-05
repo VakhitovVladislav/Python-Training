@@ -1,7 +1,7 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
-from fixture.models import GroupHelper
-from fixture.models import ContactHelper
+from fixture.Group_helper import GroupHelper
+from fixture.Contact_helper import ContactHelper
 
 class Application:
 
@@ -19,18 +19,3 @@ class Application:
     def destroy(self):
         self.wd.quit()
 
-
-class Application1:
-    def __init__(self):
-        self.wd = webdriver.Firefox()
-        self.wd.implicitly_wait(30)
-        self.session = SessionHelper(self)
-        self.group = GroupHelper(self)
-        self.contact = ContactHelper(self)
-
-    def open_home_page1(self):
-        wd = self.wd
-        wd.get("http://localhost/addressbook/group.php")
-
-    def destroy(self):
-        self.wd.quit()

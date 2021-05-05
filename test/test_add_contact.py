@@ -1,17 +1,8 @@
 # -*- coding: utf-8 -*-
-import pytest
 from model.models import Contact
-from fixture.application import Application1
-
-@pytest.fixture
-def app(request):
-    fixture = Application1()
-    request.addfinalizer(fixture.destroy)
-    return fixture
-
 
 def test_add_contact(app):
-    app.session.login1(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.contact.create_contact(
                             Contact(firstname="Vl", lastname="Vakhitov", company="Quality-lab", addreswork="moskov",
                                         mobilenumber="+79143333333",
@@ -22,7 +13,7 @@ def test_add_contact(app):
 
 
 def test_add_empty_contact(app):
-    app.session.login1(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.contact.create_contact(
                             Contact(firstname="", lastname="", company="", addreswork="",
                                         mobilenumber="",
