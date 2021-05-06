@@ -1,14 +1,14 @@
-from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.ui import Select
 
 
 class ContactHelper:
 
     def __init__(self, app):
-            self.app = app
+        self.app = app
 
     def return_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home page").click()
+        wd.find_element_by_link_text("home").click()
 
     def create_contact(self, contact):
         wd = self.app.wd
@@ -32,6 +32,16 @@ class ContactHelper:
         wd.find_element_by_name("notes").send_keys(contact.notes)
         # submit contact creation
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+        self.return_home_page()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        self.return_home_page()
+        # select first contact
+        wd.find_element_by_name("selected[]").click()
+        # submit deletion
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+
         self.return_home_page()
 
     def open_add_new(self):

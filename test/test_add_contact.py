@@ -9,7 +9,7 @@ def test_add_contact(app):
                                         email="vvakhitov@quality-lab.ru", bday="30",
                                         bmonth="August", byear="1994", address="Irkytsk",
                                         mobilenumber2="+79143679185", notes="test"))
-    app.session.logout1()
+    app.session.logout()
 
 
 def test_add_empty_contact(app):
@@ -20,4 +20,4 @@ def test_add_empty_contact(app):
                                         email="", bday="-",
                                         bmonth="-", byear="", address="",
                                         mobilenumber2="", notes=""))
-    app.session.logout1()
+    app.session.logout()
