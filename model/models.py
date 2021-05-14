@@ -1,10 +1,10 @@
 class Contact:
 
-    def __init__(self, firstname, lastname, company, addreswork,
-                                mobilenumber,
-                                email, bday,
-                                bmonth, byear, address,
-                                mobilenumber2, notes):
+    def __init__(self, firstname=None, lastname=None, company=None, addreswork=None,
+                                mobilenumber=None,
+                                email=None, bday=None,
+                                bmonth=None, byear=None, address=None,
+                                mobilenumber2=None, notes=None):
         self.firstname = firstname
         self.lastname = lastname
         self.company = company
@@ -20,7 +20,7 @@ class Contact:
 
 class Group:
 
-    def __init__(self, name, header, footer):
+    def __init__(self, name=None, header=None, footer=None):
         self.name = name
         self.header = header
         self.footer = footer
