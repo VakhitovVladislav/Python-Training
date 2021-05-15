@@ -23,26 +23,27 @@ class ContactHelper:
         self.change_contact_value("firstname", contact.firstname)
         self.change_contact_value("lastname", contact.lastname)
         self.change_contact_value("company", contact.company)
-        self.change_contact_value("addreswork", contact.addreswork)
-        self.change_contact_value("mobilenumber", contact.mobilenumber)
+        self.change_contact_value("address", contact.addreswork)
+        self.change_contact_value("mobile", contact.mobilenumber)
         self.change_contact_value("email", contact.email)
-        self.change_contact_value("notes", contact.notes)
         self.change_born_value("bday", contact.bday)
         self.change_born_value("bmonth", contact.bmonth)
-        self.change_born_value("byear", contact.byear)
+        self.change_contact_value("byear", contact.byear)
+        self.change_contact_value("address", contact.address)
+        self.change_contact_value("notes", contact.notes)
 
-    def change_born_value(self, field_day, date):
-        wd = self.app.wd
-        if date is not None:
-            wd.find_element_by_name(field_day).click()
-            Select(wd.find_element_by_name(field_day)).select_by_visible_text(date)
-
-    def change_contact_value(self, field_firstname, text):
+    def change_born_value(self, field_day, text):
         wd = self.app.wd
         if text is not None:
-            wd.find_element_by_name(field_firstname).click()
-            wd.find_element_by_name(field_firstname).clear()
-            wd.find_element_by_name(field_firstname).send_keys(text)
+            wd.find_element_by_name(field_day).click()
+            Select(wd.find_element_by_name(field_day)).select_by_visible_text(text)
+
+    def change_contact_value(self, field_name, text):
+        wd = self.app.wd
+        if text is not None:
+            wd.find_element_by_name(field_name).click()
+            wd.find_element_by_name(field_name).clear()
+            wd.find_element_by_name(field_name).send_keys(text)
 
     def delete_first_contact(self):
         wd = self.app.wd
@@ -54,20 +55,19 @@ class ContactHelper:
         self.return_home_page()
 
     def select_first_contact(self):
+        wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
         self.return_home_page()
-        #open_modification_form
+        # open_modification_form
         wd.find_element_by_xpath("(//img[@alt='Edit'])[1]").click()
-        #fill_contact_form
+        # fill_contact_form
         self.fill_contact_form(new_contact_data)
-        #update_contact
+        # update_contact
         wd.find_element_by_name("update").click()
         self.return_home_page()
-
-
 
     def open_add_new(self):
         wd = self.app.wd
