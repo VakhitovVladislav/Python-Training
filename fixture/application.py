@@ -26,7 +26,6 @@ class Application:
 
     def open_groups_page(self):
         wd = self.wd
-        # open group page
         wd.find_element_by_link_text("groups").click()
 
     def open_home_page(self):
