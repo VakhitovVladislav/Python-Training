@@ -22,7 +22,9 @@ class Contact:
         self.id = id
 
     def __repr__(self):
-        return "%s:s%" % (self.id, self.firtstname)
+        return "%s:%s" % (self.id, self.firstname)
+
+
 
     def __eq__(self, other):
         return (self.id is None or other.id is None or self.id == other.id) or (self.firstname == other.firstname)
@@ -43,7 +45,7 @@ class Group:
         self.id = id
 
     def __repr__(self):
-        return "%s:s%" % (self.id, self.name)
+        return "%s:%s" % (self.id, self.name)
 
     def __eq__(self, other):
         return (self.id is None or other.id is None or self.id == other.id) and self.name == other.name
