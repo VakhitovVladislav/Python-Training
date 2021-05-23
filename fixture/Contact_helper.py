@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import Select
 from model.models import Contact
 
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -12,7 +13,8 @@ class ContactHelper:
 
     def return_home_page(self):
         wd = self.app.wd
-        if not (wd.current_url.endswith("/addressbook/") and len(wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
+        if not (wd.current_url.endswith("/addressbook/") and len(
+                wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
             wd.find_element_by_link_text("home").click()
 
     def create(self, contact):
@@ -51,22 +53,29 @@ class ContactHelper:
             wd.find_element_by_name(field_name).send_keys(text)
 
     def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.return_home_page()
-        self.select_first_contact()
+        self.select_contact_by_index(index)
         # submit deletion
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.home_page()
         self.contact_cache = None
 
-    def select_first_contact(self):
+    def select_contact_by_index(self, index):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
 
-    def modify_first_contact(self, new_contact_data):
+    def modify_first_contact(self):
+        self.modify_contact_by_index(0)
+
+    def modify_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         self.return_home_page()
+        self.select_contact_by_index(index)
         # open_modification_form
         wd.find_element_by_xpath("(//img[@alt='Edit'])[1]").click()
         # fill_contact_form
@@ -97,5 +106,3 @@ class ContactHelper:
                 id = element.find_element_by_name("selected[]").get_attribute("value")
                 self.contact_cache.append(Contact(firstname=firstname, id=id))
         return list(self.contact_cache)
-
-
