@@ -1,6 +1,7 @@
 from model.models import Contact
 from random import randrange
 
+
 def test_modify_firstname(app):
     if app.contact.count() == 0:
         app.contact.create(Contact(firstname="Vlad"))
