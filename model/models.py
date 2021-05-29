@@ -8,9 +8,8 @@ class Contact:
                  mobilephone=None, workphone=None,
                  email=None, email2=None, email3=None, homepage=None, bday=None,
                  bmonth=None, byear=None, address=None, address2=None, all_emails_from_home_page=None, secondaryphone = None, notes=None, id=None):
-        self.firtstname = firstname
-        self.middlename = middlename
         self.firstname = firstname
+        self.middlename = middlename
         self.lastname = lastname
         self.company = company
         self.addreswork = addreswork
@@ -33,7 +32,12 @@ class Contact:
         self.id = id
 
     def __repr__(self):
-        return "%s:%s" % (self.id, self.firstname)
+        return "%s:%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s" % (self.id, self.firstname, self.middlename,
+                                                                             self.lastname,
+                                self.company, self.addreswork, self.homephone, self.mobilephone, self.workphone,
+                                self.secondaryphone, self.email, self.email2, self.email3, self.homepage,
+                                self.bday, self.bmonth, self.byear, self.address, self.address2, self.notes)
+
 
 
 
@@ -49,14 +53,14 @@ class Contact:
 
 class Group:
 
-    def __init__(self, name=None, header=None, footer=None, id=None):
+    def __init__(self, name=None, header=None, footer=None, id=None) -> object:
         self.name = name
         self.header = header
         self.footer = footer
         self.id = id
 
     def __repr__(self):
-        return "%s:%s" % (self.id, self.name)
+        return "%s:%s;%s;%s" % (self.id, self.name, self.header, self.footer)
 
     def __eq__(self, other):
         return (self.id is None or other.id is None or self.id == other.id) and self.name == other.name
