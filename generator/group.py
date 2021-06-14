@@ -7,13 +7,13 @@ import getopt
 import sys
 
 try:
-    opts, args = getopt.getopt(sys.argv[1:],"n:f:" ,["Number_of_groups", "file"])
+    opts, args = getopt.getopt(sys.argv[1:], "n:f:", ["Number_of_groups", "file"])
 except getopt.GetoptError as err:
     getopt.usage()
     sys.exit(2)
 
-n=2
-f="data/groups.json"
+n = 2
+f = "data/groups.json"
 
 
 for o, a in opts:
