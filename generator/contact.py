@@ -24,7 +24,7 @@ for o, a in opts:
 
 
 def random_phone_number():
-    phone_list = ['914', '983', '902', '999', '950', '924']
+    phone_list = ['914', '983', '902', '999', '951', '924', '953']
     return "+" + random.choice(phone_list) + "".join([random.choice(string.digits) for i in range(7)])
 
 
@@ -45,7 +45,7 @@ testdata = [Contact(firstname=random_string("firstname", 20), middlename=random_
                     workphone=random_phone_number(), email=random_email(10), email2=random_email(10),
                     email3=random_email(8), bday="30", bmonth="August", byear="1994", address=random_string("address", 10), address2="vampilov",
                     secondaryphone=random_phone_number(), notes=random_string("notes", 50))
-            for i in range(2)]
+            for i in range(6)]
 
 file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)
 

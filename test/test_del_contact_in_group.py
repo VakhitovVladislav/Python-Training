@@ -4,7 +4,7 @@ from model.models import Contact
 
 def test_del_contact_in_group(app, db, check_ui):
     if len(db.get_contact_list()) == 0:
-        app.clcontact.add_contact(Contact(firstname="My firstname"))
+        app.contact.create(Contact(firstname="Vlad", lastname="hater"))
     old_groups = app.group.get_group_list()
     group = random.choice(old_groups)
     random_contact = random.choice(db.get_contact_not_in_group(group))

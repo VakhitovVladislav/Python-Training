@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import Select
 from model.models import Contact
 import re
+import random
 
 class ContactHelper:
 
@@ -139,13 +140,14 @@ class ContactHelper:
             self.contact_cache = []
             for row in wd.find_elements_by_name("entry"):
                 cells = row.find_elements_by_tag_name("td")
-                firstname = cells[1].text
-                lastname = cells[2].text
+                lastname = cells[1].text
+                firstname = cells[2].text
                 address = cells[3].text
                 id = cells[0].find_element_by_name("selected[]").get_attribute("value")
                 all_phones = cells[5].text
                 all_emails = cells[4].text
-                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, address=address, id=id, all_phones_from_home_page=all_phones,
+                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, address=address, id=id,
+                                                  all_phones_from_home_page=all_phones,
                                                   all_emails_from_home_page=all_emails))
         return list(self.contact_cache)
 
@@ -190,10 +192,10 @@ class ContactHelper:
         wd = self.app.wd
         self.open_contact_view_by_index(index)
         text = wd.find_element_by_id("content").text
-        homephone = re.search("H:(.*)",text).group(1)
-        mobilephone = re.search("W:(.*)",text).group(1)
-        workphone = re.search("M:(.*)",text).group(1)
-        secondaryphone = re.search("P:(.*)",text).group(1)
+        homephone = re.search("H: (.*)",text).group(1)
+        mobilephone = re.search("M: (.*)",text).group(1)
+        workphone = re.search("W: (.*)",text).group(1)
+        secondaryphone = re.search("P: (.*)",text).group(1)
         return Contact(homephone=homephone, mobilephone=mobilephone,
                        workphone=workphone, secondaryphone=secondaryphone)
 
@@ -215,5 +217,8 @@ class ContactHelper:
 
     def select_group_to_add_by_id(self, id):
         wd = self.app.wd
+        zzz=[]
+        wd = self.app.wd
         wd.find_element_by_css_selector("select[name='to_group']").click()
-        wd.find_element_by_css_selector("select[name='to_group'] option[value='%s']" % id).click()
+        zzz.append(wd.find_element_by_css_selector("select[name='to_group'] option[value='%s']" % id).click())
+        return zzz
