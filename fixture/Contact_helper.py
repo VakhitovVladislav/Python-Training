@@ -205,20 +205,20 @@ class ContactHelper:
         self.select_contact_by_id(contact_id)
         self.select_group_to_add_by_id(group_id)
         wd.find_element_by_name("add").click()
-        self.return_home_page()
+        self.home_page
 
     def del_contact_in_group(self, contact_id, group_id):
         wd = self.app.wd
-        self.return_home_page()
+        self.home_page
         self.select_group_to_add_by_id(group_id)
         self.select_contact_by_id(contact_id)
         wd.find_element_by_name("remove").click()
-        self.return_home_page()
+        self.home_page
+
 
     def select_group_to_add_by_id(self, id):
         wd = self.app.wd
-        zzz=[]
-        wd = self.app.wd
         wd.find_element_by_css_selector("select[name='to_group']").click()
-        zzz.append(wd.find_element_by_css_selector("select[name='to_group'] option[value='%s']" % id).click())
-        return zzz
+        select = Select(wd.find_element_by_css_selector("select[name='to_group']"))
+        select.select_by_value(id)
+
