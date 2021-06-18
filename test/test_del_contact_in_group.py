@@ -1,10 +1,13 @@
 import random
 from model.models import Contact
+from model.models import Group
 
 
 def test_del_contact_in_group(app, db, check_ui):
     if len(db.get_contact_list()) == 0:
         app.contact.create(Contact(firstname="Vlad", lastname="hater"))
+    if len(db.get_group_list()) == 0:
+        app.group.create(Group(name="test"))
     old_groups = app.group.get_group_list()
     group = random.choice(old_groups)
     contact = random.choice(db.get_contact_not_in_group())

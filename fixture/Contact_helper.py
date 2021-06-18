@@ -205,7 +205,7 @@ class ContactHelper:
         self.select_contact_by_id(contact_id)
         self.select_group_to_add_by_id(group_id)
         wd.find_element_by_name("add").click()
-        self.home_page
+        self.home_page()
 
     def del_contact_in_group(self, contact_id, group_id):
         wd = self.app.wd
@@ -213,7 +213,7 @@ class ContactHelper:
         self.select_group_to_add_by_id(group_id)
         self.select_contact_by_id(contact_id)
         wd.find_element_by_name("remove").click()
-        self.home_page
+        self.home_page()
 
 
     def select_group_to_add_by_id(self, id):
