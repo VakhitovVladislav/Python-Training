@@ -94,6 +94,7 @@ class ContactHelper:
 
 
 
+
     def modify_first_contact(self):
         self.modify_contact_by_index(0)
 
@@ -223,8 +224,7 @@ class ContactHelper:
         select.select_by_value(id)
 
 
-    def open_contact_list_in_group_by_id(self):
+    def open_contact_list_in_group_by_id(self, id):
         wd = self.app.wd
-        wd.find_element_by_css_selector("select[name='group']").click()
-        select = Select(wd.find_element_by_css_selector("select[name='group']"))
-        select.select_by_value()
+        wd.find_element_by_name("group").click()
+        wd.find_element_by_xpath("//option[@value='%s']" % id).click()
