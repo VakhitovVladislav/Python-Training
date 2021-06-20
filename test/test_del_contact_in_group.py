@@ -8,13 +8,15 @@ def test_del_contact_in_group(app, db, check_ui):
         app.contact.create(Contact(firstname="Vlad", lastname="hater"))
     if len(db.get_group_list()) == 0:
         app.group.create(Group(name="test"))
+    if len(db.get_contacts_in_group()) ==0:
+        app.contact.add_contact_to_group()
     groups = db.get_groups_with_contacts()
     group = random.choice(groups)
-    contacts = db.get_contacts_in_group(group.id)
+    contacts = db.get_contacts_in_group()
     contact = random.choice(contacts)
-    old_contacts = db.get_contacts_in_group(group.id)
+    old_contacts = db.get_contacts_in_group()
     app.contact.del_contact_in_group(contact, group.id)
-    new_contacts = db.get_contacts_in_group(group.id)
+    new_contacts = db.get_contacts_in_group()
     assert len(old_contacts) - 1 == len(new_contacts)
     if check_ui:
         assert sorted(new_contacts, key=Contact.id_or_max) == sorted(app.group.get_group_list(), key=Contact.id_or_max)

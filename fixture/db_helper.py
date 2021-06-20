@@ -46,12 +46,11 @@ class DbFixture:
             cursor.close()
         return list
 
-    def get_contacts_in_group(self, group_id):
+    def get_contacts_in_group(self):
         cursor = self.connection.cursor()
         try:
             cursor.execute(
-                "select id from address_in_groups where group_id=%s",
-                (str(group_id)))
+                "select id from address_in_groups")
             return cursor.fetchall()
         finally:
             cursor.close()
