@@ -228,3 +228,4 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_name("group").click()
         wd.find_element_by_xpath("//option[@value='%s']" % id).click()
+
