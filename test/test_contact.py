@@ -8,11 +8,11 @@ def test_contacts_info_on_home_page_vs_db(app, db):
     contact_from_homepage = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
     contact_from_db = sorted(db.get_contact_list(), key=Contact.id_or_max)
     for index in range(len(db.get_contact_list())):
-        assert clear(contact_from_homepage[index].firstname) == clear(contact_from_db[index].firstname)
-        assert clear(contact_from_homepage[index].lastname) == clear(contact_from_db[index].lastname)
-        assert clear(contact_from_homepage[index].address) == clear(contact_from_db[index].address)
-        assert clear(contact_from_homepage[index].all_phones_from_home_page) == merge_phones_like_on_home_page(contact_from_db[index])
-        assert clear(contact_from_homepage[index].all_emails_from_home_page) == merge_emails_like_on_home_page(contact_from_db[index])
+        assert contact_from_homepage[index].firstname == contact_from_db[index].firstname
+        assert contact_from_homepage[index].lastname == contact_from_db[index].lastname
+        assert contact_from_homepage[index].address == contact_from_db[index].address
+        assert contact_from_homepage[index].all_phones_from_home_page == merge_phones_like_on_home_page(contact_from_db[index])
+        assert contact_from_homepage[index].all_emails_from_home_page == merge_emails_like_on_home_page(contact_from_db[index])
 
 
 def clear(s):
