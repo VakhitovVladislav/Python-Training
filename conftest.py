@@ -45,7 +45,6 @@ def db(request):
     return dbfixture
 
 
-
 @pytest.fixture(scope="session", autouse=True)
 def stop(request):
     def fin():
