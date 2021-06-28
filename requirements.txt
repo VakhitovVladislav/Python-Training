@@ -1,5 +1,5 @@
 pytest
-pytest_bdd==pytest-bdd==3.4.0
+pytest-bdd==3.4.0
 selenium
 jsonpickle
 pony
