@@ -13,7 +13,7 @@ def test_add_contact_in_group(app, db, check_ui):
     group = app.group.get_group_list()
     groups = random.choice(group)
     group_id = groups.id
-    contacts = app.contact.get_contact_list()
+    contacts = db.get_contacts_not_in_group()
     contact = random.choice(contacts)
     contact_id = contact.id
     print(db.get_contacts_in_group())
