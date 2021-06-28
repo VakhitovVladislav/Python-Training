@@ -1,0 +1,47 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert [178:name_=+z...7uk`:#~8, ...] == [178:name_=+z...7uk`:#~8, ...]\n  Left contains one more item: None:name5;header]6'%l:n u;footer\n  Use -v to get the full diff",
+      "children" : [ {
+        "name" : "test_add_group[None:name5;header]6'%l:n u;footer]",
+        "uid" : "78152f9008cc86ef",
+        "parentUid" : "9a55c31fa3194e89706aaf75ed7887ed",
+        "status" : "failed",
+        "time" : {
+          "start" : 1624856845270,
+          "stop" : 1624856846522,
+          "duration" : 1252
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "None:name5;header]6'%l:n u;footer" ]
+      } ],
+      "uid" : "9a55c31fa3194e89706aaf75ed7887ed"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  }, {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: group page",
+      "children" : [ {
+        "name" : "test_add_group[None:name'j;headerE]4z% PLRjnf#I ;footer+Y} :x_L%' \"\\' 2`Q]",
+        "uid" : "8e7b98b9eae16420",
+        "parentUid" : "c1858d57392698228e05cec936041ad8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1624856851302,
+          "stop" : 1624856852201,
+          "duration" : 899
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "None:name'j;headerE]4z% PLRjnf#I ;footer+Y} :x_L%' \"\\' 2`Q" ]
+      } ],
+      "uid" : "c1858d57392698228e05cec936041ad8"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

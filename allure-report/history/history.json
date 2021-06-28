@@ -1,0 +1,118 @@
+{
+  "d98a6971beed78e367b4897c75b22236" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "2e1d011307dfeb91",
+      "status" : "passed",
+      "time" : {
+        "start" : 1624856846731,
+        "stop" : 1624856847965,
+        "duration" : 1234
+      }
+    } ]
+  },
+  "944847875a80dcd2a952027e9ecd0633" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "78152f9008cc86ef",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert [178:name_=+z...7uk`:#~8, ...] == [178:name_=+z...7uk`:#~8, ...]\n  Left contains one more item: None:name5;header]6'%l:n u;footer\n  Use -v to get the full diff",
+      "time" : {
+        "start" : 1624856845270,
+        "stop" : 1624856846522,
+        "duration" : 1252
+      }
+    } ]
+  },
+  "ff885becc5638a229cc0abc5a30bdeda" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8e7b98b9eae16420",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: group page",
+      "time" : {
+        "start" : 1624856851302,
+        "stop" : 1624856852201,
+        "duration" : 899
+      }
+    } ]
+  },
+  "51f0316e6457ad339cc55182ce3d329d" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "6db7411c6e04a3bf",
+      "status" : "passed",
+      "time" : {
+        "start" : 1624856849196,
+        "stop" : 1624856850173,
+        "duration" : 977
+      }
+    } ]
+  },
+  "6a5fbf8e4921e3084e3b9a172cd0d405" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b5fc36c62f440bbf",
+      "status" : "passed",
+      "time" : {
+        "start" : 1624856850213,
+        "stop" : 1624856851269,
+        "duration" : 1056
+      }
+    } ]
+  },
+  "159f39701fa5840a493ecd829253e77c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "795fabe3eb2655c6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1624856848002,
+        "stop" : 1624856849156,
+        "duration" : 1154
+      }
+    } ]
+  }
+}
