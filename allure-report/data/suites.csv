@@ -1,7 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Mon Jun 28 13:07:26 IRKT 2021","Mon Jun 28 13:07:27 IRKT 2021","1234","test","test_add_group","","","","test_add_group[None:name_=+zJ;header4`6O * 4i6!& lI ;;footer]",""
-"passed","Mon Jun 28 13:07:28 IRKT 2021","Mon Jun 28 13:07:29 IRKT 2021","1154","test","test_add_group","","","","test_add_group[None:name-{;header|M.p~ucWV1ne\'1SG!;footer*!;L u7uk`:#~8]",""
-"failed","Mon Jun 28 13:07:25 IRKT 2021","Mon Jun 28 13:07:26 IRKT 2021","1252","test","test_add_group","","","","test_add_group[None:name5;header]6'%l:n u;footer]",""
-"broken","Mon Jun 28 13:07:31 IRKT 2021","Mon Jun 28 13:07:32 IRKT 2021","899","test","test_add_group","","","","test_add_group[None:name'j;headerE]4z% PLRjnf#I ;footer+Y} :x_L%' ""\' 2`Q]",""
-"passed","Mon Jun 28 13:07:30 IRKT 2021","Mon Jun 28 13:07:31 IRKT 2021","1056","test","test_add_group","","","","test_add_group[None:nameO b @+ 5;;header>E,JYG""U49P*  [;footerR &q >(9k6k]",""
-"passed","Mon Jun 28 13:07:29 IRKT 2021","Mon Jun 28 13:07:30 IRKT 2021","977","test","test_add_group","","","","test_add_group[None:nameUeS !;headerlg;footer3P6 /l`4%J)~]",""
